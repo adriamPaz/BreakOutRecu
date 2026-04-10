@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: cf14e53b2a5bec7a1b5a2e3765b5dd0d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gameManager: {instanceID: 0}
+  - sfxPaddel: {instanceID: 0}
+  - sfxBrick: {instanceID: 0}
+  - sfxWall: {instanceID: 0}
+  - sfxFail: {fileID: 8300000, guid: c1bac3276460dc9d38c0348ee5d4c390, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
