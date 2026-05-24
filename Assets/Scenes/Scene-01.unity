@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelotaController
   delay: 1.5
-  force: 1
+  force: 0.6
   sfxPaddel: {fileID: 8300000, guid: e236fce9789b18f20ab825fd96b7fe43, type: 3}
   sfxBrick: {fileID: 8300000, guid: 3b9ebff14e9d595029e3948779a7a42b, type: 3}
   sfxWall: {fileID: 8300000, guid: 5e614a3cba4080ba999cd5c953bc66c3, type: 3}
@@ -2890,7 +2890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e869c714fa943a8914ab5188d3a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PalaContro
-  speed: 2.5
+  speed: 5
 --- !u!61 &1647904353
 BoxCollider2D:
   m_ObjectHideFlags: 0

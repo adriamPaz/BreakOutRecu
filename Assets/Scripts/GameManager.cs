@@ -24,4 +24,18 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(0);
     }
+
+    void Start() {
+    // Mejora: Desactivar el cursor
+    Cursor.visible = false;
+    Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void Update() {
+        // Mejora: Salir del juego al pulsar Escape
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Debug.Log("Saliendo del juego...");
+            Application.Quit(); 
+        }
+    }
 }
