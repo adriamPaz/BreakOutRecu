@@ -1,8 +1,10 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
-    public static int[] totalBricks = new int[] {0, 32, 21};
+    public static int[] totalBricks = new int[] {0, 28, 21};
 
     // Variable para llevar el control de la puntuación 
     public static int Score { get; private set; } = 0;
@@ -13,4 +15,13 @@ public class GameManager : MonoBehaviour
     public static void Updatelives() { Lives--; }
     // Método para actualizar la puntuación 
     public static void UpdateScore(int points) { Score += points; }
+
+    // Método para reiniciar el juego
+    public static void ResetGame(){
+        Score = 0;
+
+        Lives = 3;
+
+        SceneManager.LoadScene(0);
+    }
 }

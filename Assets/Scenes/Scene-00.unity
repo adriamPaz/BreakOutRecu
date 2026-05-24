@@ -2872,7 +2872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e869c714fa943a8914ab5188d3a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PalaContro
-  speed: 2
+  speed: 5
 --- !u!61 &1647904353
 BoxCollider2D:
   m_ObjectHideFlags: 0

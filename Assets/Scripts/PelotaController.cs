@@ -54,23 +54,32 @@ public class PelotaController : MonoBehaviour
     {
 
     }
-    void DestroyBrick(GameObject obj)
-    {
-        sfx.clip = sfxBrick;
+    public void DestroyBrick(GameObject obj){
+    sfx.clip = sfxBrick; 
+    sfx.Play();
+    // Actualizamos la puntuación 
+    GameManager.UpdateScore(ladrillos[obj.tag]);
+    // Se destruye el objeto
+    Destroy(obj);
+    // Actualizamos el contador de ladrillos destruidos
+    ++brickCount;
+    // Comprobamos si hemos alcanzado el máximo de ladrillos. Necesitamos el índice de la escena en la que nos encontramos para saber cuántos ladrillos tenemos. 
+    if(brickCount == GameManager.totalBricks[sceneId]){
+        
         sfx.Play();
-        // Actualizamos la puntuación 
-
-        GameManager.UpdateScore(ladrillos[obj.tag]);
-        // Se destruye el objeto
-        Destroy(obj);
-
-        ++brickCount;
-        // Comprobamos si hemos alcanzado el máximo de ladrillos. Necesitamos el índice de la escena en la que nos encontramos para saber cuántos ladrillos tenemos.
-        if (brickCount == GameManager.totalBricks[sceneId])
-        {
-            SceneManager.LoadScene(sceneId + 1);
-        }
+        // Detenemos el movimiento de la pelota
+        rb.linearVelocity = Vector2.zero;
+        Invoke("NextScene", 3);
     }
+}
+
+void NextScene(){
+    int nextId = sceneId + 1; 
+    if(nextId == SceneManager.sceneCountInBuildSettings){
+        nextId = 0;
+    }
+    SceneManager.LoadScene(nextId);
+}
 
     private void LanzarPelota()
     {
@@ -150,9 +159,21 @@ public class PelotaController : MonoBehaviour
 
             }
             // Volvemos a lanzar la pelota
-            Invoke("LanzarPelota", delay);
         }
+        if (GameManager.Lives <= 0)
+    {
+        //Se detiene el movimiento de la pelota
+        rb.linearVelocity = Vector2.zero;
+        //Se desactiva la pelota
+        gameObject.SetActive(false);
+        //Se sale del método para que no se relance
+        return;
     }
+
+        // Si aún quedan vidas se vuelve a lanzar la pelota
+        Invoke("LanzarPelota", delay);
+    }
+    
 
     public void HalvePaddle(bool reducir)
     {
