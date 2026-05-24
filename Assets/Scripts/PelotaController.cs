@@ -73,12 +73,17 @@ public class PelotaController : MonoBehaviour
     }
 }
 
-void NextScene(){
-    int nextId = sceneId + 1; 
-    if(nextId == SceneManager.sceneCountInBuildSettings){
-        nextId = 0;
+void NextScene() {
+    int nextId = sceneId + 1;
+    
+    // Si la siguiente escena es mayor que el último nivel, cargará los créditos
+    // Asegúrate de que Scene-Credits sea la última en Build Settings
+    if (nextId < SceneManager.sceneCountInBuildSettings) {
+        SceneManager.LoadScene(nextId);
+    } else {
+        // Opcional: Si quieres que desde créditos vuelva al inicio tras un tiempo
+        SceneManager.LoadScene(0); 
     }
-    SceneManager.LoadScene(nextId);
 }
 
     private void LanzarPelota()
